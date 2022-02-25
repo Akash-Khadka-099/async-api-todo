@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-import axios from "./axios";
+import axios from "./Axios";
 import TodoCard from "./Todocard";
 
 function AllTodo() {
   const [fetchedData, setFetchedData] = useState([]);
   async function fetchApi() {
-    const response = await axios.get();
+    const response = await axios.get(`/todos`);
     setFetchedData(response.data);
   }
 
   useEffect(() => {
     fetchApi();
   }, []);
-  console.log(fetchedData);
+  // console.log(fetchedData);
   return (
     <div>
       {/* { fetchData ? <p>{ fetchData.title}</p> : <p>not loaded </p> } */}
